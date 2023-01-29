@@ -1,9 +1,7 @@
 class Solution:
     def pivotInteger(self, n: int) -> int:
-        total_sum = 0
+        total_sum = n * (n + 1) // 2 
         left_sum = 0
-        for num in range(n + 1):
-            total_sum += num
         for num in range(n + 1):
             right_sum = total_sum - left_sum
             left_sum += num
