@@ -2,10 +2,10 @@ const checkInclusion = (s1, s2) => {
   const needs = new Map();
   const window = new Map();
 
+  let contains = false;
+  let match = 0;
   let left = 0;
   let right = 0;
-  let match = 0;
-  let contains = false;
 
   for (const char of s1) {
     const count = needs.get(char) ?? 0;
@@ -27,16 +27,18 @@ const checkInclusion = (s1, s2) => {
         contains = true;
       }
 
-      const count = window.get(s2[left]);
-      window.set(s2[left], count - 1);
-      
-      if (window.get(s2[left]) < needs.get(s2[left])) {
-        match--;
+      if (needs.has(s2[left])) {
+        const count = window.get(s2[left]);
+        window.set(s2[left], count - 1);
+
+        if (window.get(s2[left]) < needs.get(s2[left])) {
+          match--;
+        }
       }
 
       left++;
     }
-
+    
     right++;
   }
 
