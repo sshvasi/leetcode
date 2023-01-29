@@ -1,21 +1,19 @@
 const deleteDuplicates = (head) => {
   const sentinel = new ListNode(0, head);
 
-  let previous = sentinel;
-  let current = sentinel.next;
+  let prev = sentinel;
+  let curr = sentinel.next;
 
-  while (current !== null && current.next !== null) {
-    if (current.val === current.next.val) {
-      while (current.next !== null && current.val === current.next.val) {
-        current = current.next;
+  while (curr !== null && curr.next !== null) {
+    if (curr.val === curr.next.val) {
+      while (curr.next !== null && curr.val === curr.next.val) {
+        curr = curr.next;
       }
-
-      previous.next = current.next;
+      prev.next = curr.next;
     } else {
-      previous = current;
+      prev = curr;
     }
-
-    current = current.next;
+    curr = curr.next;
   }
 
   return sentinel.next;
