@@ -1,21 +1,19 @@
 const removeNthFromEnd = (head, n) => {
-  let left = head;
-  let right = head;
+  const sentinel = new ListNode(0, head);
 
-  for (let i = 0; i < n; i++) {
+  let left = sentinel;
+  let right = sentinel;
+
+  for (let i = 0; i < n + 1; i++) {
     right = right.next;
   }
 
-  if (right === null) {
-    return head.next;
-  }
-
-  while (right.next !== null) {
+  while (right !== null) {
     left = left.next;
     right = right.next;
   }
-  
+
   left.next = left.next.next;
 
-  return head;
+  return sentinel.next;
 };
