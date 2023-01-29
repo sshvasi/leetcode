@@ -12,7 +12,7 @@ const detectCycle = (head) => {
         entry = entry.next;
         slow = slow.next;
       }
-      
+
       return entry;
     }
   }
