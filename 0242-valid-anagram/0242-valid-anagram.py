@@ -9,7 +9,6 @@ class Solution:
             freq_count[char] = freq_count.get(char, 0) + 1
 
         for char in t:
-            print(char)
             if char not in freq_count:
                 return False
 
