@@ -1,36 +1,30 @@
-const inorderTraversal = function (root) {
-  const values = [];
+const inorderTraversal = (root) => {
+    const values = [];
+    const stack = [];
 
-  const dfs = (node) => {
-    if (node !== null) {
-      dfs(node.left);
-      values.push(node.val);
-      dfs(node.right);
+    let current = root;
+
+    while (current !== null || stack.length !== 0) {
+        if (current !== null) {
+          stack.push(current);
+          current = current.left;
+        } else {
+          const last = stack.pop();
+          values.push(last.val);
+          current = last.right;
+        }
     }
-  };
 
-  dfs(root);
+    // while (current !== null || stack.length !== 0) {
+    //     while (current !== null) {
+    //         stack.push(current);
+    //         current = current.left;
+    //     }
 
-  return values;
+    //     const last = stack.pop();
+    //     values.push(last.val);
+    //     current = last.right
+    // }
+
+    return values;
 };
-
-// const inorderTraversal = (root) => {
-//   const values = [];
-//   const stack = [];
-
-//   let current = root;
-
-//   while (current !== null || stack.length !== 0) {
-//     while (current !== null) {
-//       stack.push(current);
-//       current = current.left;
-//     }
-
-//     const last = stack.pop();
-//     values.push(last.val);
-
-//     current = last.right;
-//   }
-
-//   return values;
-// };
