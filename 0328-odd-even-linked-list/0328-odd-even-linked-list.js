@@ -1,21 +1,19 @@
 const oddEvenList = (head) => {
-  if (head === null) {
-    return null;
-  }
+    if (head === null) return null;
 
-  let odd = head;
-  let even = head.next;
-  let evenHead = head.next;
+    let odd = head;
+    let even = head.next;
+    let evenHead = head.next;
 
-  while (even && even.next) {
-    odd.next = even.next;
-    odd = odd.next;
+    while (even !== null && even.next !== null) {
+        odd.next = even.next;
+        odd = odd.next;
 
-    even.next = odd.next;
-    even = even.next;
-  }
+        even.next = odd.next;
+        even = even.next;
+    }
 
-  odd.next = evenHead;
+    odd.next = evenHead;
 
-  return head;
+    return head;
 };
