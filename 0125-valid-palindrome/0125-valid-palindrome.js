@@ -1,17 +1,13 @@
 const isPalindrome = (s) =>{
     s = s.toUpperCase().replace(/[^a-z0-9]/gi, '')
     
-    let i = 0
-    let j = s.length - 1
-    
-    while (i < j) {
+    for (let i = 0; i < s.length; i++) {
+        const j = s.length - i - 1
+        
         if (s[i] !== s[j]) {
             return false
         }
-        
-        i++
-        j--
     }
     
     return true
-};
+}
