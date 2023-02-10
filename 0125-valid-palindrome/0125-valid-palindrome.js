@@ -1,19 +1,17 @@
-const isPalindrome = function(s) {
-    const filteredStr = s
-        .toUpperCase()
-        .replace(/[^A-Z0-9]/gi, '');
-
-    let left = 0;
-    let right = filteredStr.length - 1;
-
-    while (left < right) {
-        if (filteredStr[left] !== filteredStr[right]) {
-            return false;
+const isPalindrome = (s) =>{
+    s = s.toUpperCase().replace(/[^a-z0-9]/gi, '')
+    
+    let i = 0
+    let j = s.length - 1
+    
+    while (i < j) {
+        if (s[i] !== s[j]) {
+            return false
         }
-
-        left++;
-        right--;
+        
+        i++
+        j--
     }
-
-    return true;
+    
+    return true
 };
