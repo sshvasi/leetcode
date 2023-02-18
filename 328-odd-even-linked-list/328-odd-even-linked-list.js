@@ -1,10 +1,10 @@
 const oddEvenList = (head) => {
   if (!head) return null
   
-  let evenHead = head.next
+  const evenHead = head.next
 
   let odd = head
-  let even = head.next
+  let even = evenHead
 
   while (even && even.next) {
     odd.next = even.next
