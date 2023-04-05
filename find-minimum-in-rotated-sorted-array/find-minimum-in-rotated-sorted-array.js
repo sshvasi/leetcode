@@ -1,16 +1,16 @@
 const findMin = (nums) => {
-  let left = 0
-  let right = nums.length - 1
+  let left = -1
+  let right = nums.length
 
-  while (left < right) {
-    const mid = Math.floor(left + (right - left) / 2)
+  while (right - left > 1) {
+    const middle = Math.floor(left + (right - left) / 2)
 
-    if (nums[mid] < nums[right]) {
-      right = mid
+    if (nums[middle] <= nums[nums.length - 1]) {
+      right = middle
     } else {
-      left = mid + 1
+      left = middle
     }
   }
 
-  return nums[left]
+  return nums[right]
 }
