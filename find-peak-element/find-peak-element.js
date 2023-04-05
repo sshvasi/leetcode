@@ -1,16 +1,22 @@
 const findPeakElement = (nums) => {
-  let left = 0
+  let left = -1
   let right = nums.length - 1
 
-  while (left < right) {
-    const mid = Math.floor(left + (right - left) / 2)
+  while (right - left > 1) {
+    const middle = left + Math.floor((right - left) / 2)
 
-    if (nums[mid] < nums[mid + 1]) {
-      left = mid + 1
+    if (isGreaterThanNext(nums, middle)) {
+      right = middle
     } else {
-      right = mid
+      left = middle
     }
   }
 
-  return left
+  return right
+}
+
+const isGreaterThanNext = (nums, index) => {
+  return index === nums.length - 1
+    ? true
+    : nums[index] > nums[index + 1]
 }
