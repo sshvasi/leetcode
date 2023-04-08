@@ -1,0 +1,15 @@
+const searchBST = (root, val) => {
+  let curr = root
+
+  while (curr) {
+    if (val < curr.val) {
+      curr = curr.left
+    } else if (val > curr.val) {
+      curr = curr.right
+    } else {
+      return curr
+    }
+  }
+
+  return null
+}
